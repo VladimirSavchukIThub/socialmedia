@@ -16,11 +16,18 @@ public class UserDetailsImpl implements UserDetails {
     private Long id;
     private String username;
     private String password;
+    private String email;
+    private String address;
+    private Long phoneNumber;
+
     public static UserDetailsImpl build(User user){
         return new UserDetailsImpl(
                 user.getUserId(),
                 user.getUserName(),
-                user.getPassword());
+                user.getPassword(),
+                user.getEmail(),
+                user.getAddress(),
+                user.getPhoneNumber());
 
     }
     @Override
