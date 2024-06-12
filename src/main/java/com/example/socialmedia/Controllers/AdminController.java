@@ -6,6 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Slf4j
 @RestController
@@ -111,5 +113,13 @@ public class AdminController {
     public ResponseEntity updateUserById(@PathVariable("id") long id, @RequestBody User user) {
         dataAccessLayer.updateUser(id, user);
         return ResponseEntity.ok("Updated!");
+    }
+
+    private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
+    public void someMethod() {
+        logger.debug("Debug message");
+        logger.info("Info message");
+        logger.warn("Warning message");
+        logger.error("Error message");
     }
 }

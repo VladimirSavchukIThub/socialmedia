@@ -12,6 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Objects;
 
@@ -61,5 +63,12 @@ public class SecurityController {
         SocialmediaApplication.currentUser = userService.loadUserEntityByUsername(signinRequest.getUserName());
         log.info("Вход прошёл успешно");
         return ResponseEntity.ok(jwt);
+    }
+    private static final Logger logger = LoggerFactory.getLogger(SecurityController.class);
+    public void someMethod() {
+        logger.debug("Debug message");
+        logger.info("Info message");
+        logger.warn("Warning message");
+        logger.error("Error message");
     }
 }
